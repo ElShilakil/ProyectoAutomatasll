@@ -11,25 +11,39 @@
   <header>
     <div class="logo-container">
         <i class="fa-solid fa-circle-info"></i>
-      <span>Ayuda</span>
+        <span>Ayuda</span>
     </div>
-    
   </header>
-  <h1 >Traductor Binario</h1>
+
+  <h1>Traductor de Texto a Binario y Binario a Texto</h1>
+
   <div class="container">
     <div class="input-container">
-      <textarea id="inputText" placeholder="Introduce texto o binario"></textarea>
-    </div>
-    <div class="buttons">
-      <button id="binToTextBtn">Binario a Texto</button>
+      <h2>Introduce texto para convertir a binario</h2>
+      <textarea id="inputText" placeholder="Introduce texto"></textarea>
+      <br><br>
       <button id="textToBinBtn">Texto a Binario</button>
+      <br><br>
+      <div class="output-container">
+        <textarea id="outputText" readonly placeholder="Resultado"></textarea>
+      </div>
     </div>
-    <div class="output-container">
-      <textarea id="outputText" readonly placeholder="Resultado"></textarea>
-    </div>
+    
+
+    <br><br>
+    <div class="input-container">
+      <h2>Introduce binario para convertir a texto</h2>
+      <textarea id="inputBinary" placeholder="Introduce binario"></textarea>
+      <br><br>
+      <button id="binToTextBtn">Binario a Texto</button>
+      <br><br>
+      <div class="output-container">
+        <textarea id="outputBinary" readonly placeholder="Resultado"></textarea>
+      </div>
+    </div>    
   </div>
 
-  <script src="script.js"></script>
+
+  <script src="trad.js"></script>
 </body>
 </html>
-
