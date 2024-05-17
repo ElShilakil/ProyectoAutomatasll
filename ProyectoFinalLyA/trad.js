@@ -1,5 +1,5 @@
 // Función para convertir texto a binario
-document.getElementById("textToBinBtn").addEventListener("click", function() {
+  document.getElementById("textToBinBtn").addEventListener("click", function() {
     var inputText = document.getElementById("inputText").value;
     var binaryResult = "";
 
