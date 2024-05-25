@@ -23,6 +23,7 @@ document.getElementById("textToBinBtn").addEventListener("click", function() {
     var binaryResult = textToBinary(inputText);
     document.getElementById("outputText").value = binaryResult;
     validateWord(inputText, document.getElementById("validationMessage"));
+    performLexicalAnalysis(inputText);
   }
 });
 
@@ -35,6 +36,7 @@ document.getElementById("binToTextBtn").addEventListener("click", function() {
   } else {
     document.getElementById("outputBinary").value = textResult;
     validateWord(textResult, document.getElementById("validationMessageBinary"));
+    performLexicalAnalysis(textResult);
   }
 });
 
@@ -92,6 +94,7 @@ function validateWord(word, validationMessage) {
   } else {
     validationMessage.textContent = "La(s) palabra(s) es(son) admitidas";
   }
+  performSyntacticAnalysis(word, invalidWords);
 }
 
 // Función para verificar si una cadena contiene números
@@ -107,3 +110,21 @@ wordListBtn.addEventListener('click', function() {
   // Abrir el archivo de texto con las palabras admitidas
   window.open('listado-general.txt', '_blank');
 });
+
+// Función para realizar el análisis léxico
+function performLexicalAnalysis(text) {
+  const words = text.split(/\s+/);
+  const analysis = words.map(word => `Palabra: ${word} - Longitud: ${word.length}`).join('\n');
+  document.getElementById('lexicalAnalysis').textContent = analysis;
+}
+
+// Función para realizar el análisis sintáctico
+function performSyntacticAnalysis(word, invalidWords) {
+  let analysis = `Palabra(s) ingresada(s): ${word}\n`;
+  if (invalidWords.length > 0) {
+    analysis += `Palabra(s) no válida(s): ${invalidWords.join(', ')}\n`;
+  } else {
+    analysis += `Todas las palabras son válidas\n`;
+  }
+  document.getElementById('syntacticAnalysis').textContent = analysis;
+}
