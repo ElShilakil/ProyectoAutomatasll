@@ -71,15 +71,15 @@ button:hover {
 }
 
 .input-container {
-  position: relative; /* Establecemos un contexto de posicionamiento */
+  position: relative;
 }
 
 .input-container button {
-  position: absolute; /* Posicionamos el botón de manera absoluta */
-  top: 50%; /* Lo movemos al 50% desde la parte superior */
-  transform: translateY(-50%); /* Ajustamos su posición verticalmente */
-  left: 50%; /* Lo centramos horizontalmente */
-  transform: translateX(-50%); /* Ajustamos su posición horizontalmente */
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%); 
+  left: 50%; 
+  transform: translateX(-50%);
 }
 
 /* Estilos para la ventana modal */
