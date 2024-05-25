@@ -115,7 +115,17 @@ wordListBtn.addEventListener('click', function() {
 function performLexicalAnalysis(text) {
   const words = text.split(/\s+/);
   const analysis = words.map(word => `Palabra: ${word} - Longitud: ${word.length}`).join('\n');
+  const codeSnippet = `
+// Función para realizar el análisis léxico
+function performLexicalAnalysis(text) {
+  const words = ${JSON.stringify(words)};
+  const analysis = words.map(word => \`Palabra: \${word} - Longitud: \${word.length}\`).join('\\n');
   document.getElementById('lexicalAnalysis').textContent = analysis;
+}
+performLexicalAnalysis("${text}");
+`;
+  document.getElementById('lexicalAnalysis').textContent = analysis;
+  document.getElementById('lexicalAnalysisCode').textContent = codeSnippet;
 }
 
 // Función para realizar el análisis sintáctico
@@ -126,5 +136,19 @@ function performSyntacticAnalysis(word, invalidWords) {
   } else {
     analysis += `Todas las palabras son válidas\n`;
   }
+  const codeSnippet = `
+// Función para realizar el análisis sintáctico
+function performSyntacticAnalysis(word, invalidWords) {
+  let analysis = \`Palabra(s) ingresada(s): \${word}\\n\`;
+  if (invalidWords.length > 0) {
+    analysis += \`Palabra(s) no válida(s): \${invalidWords.join(', ')}\\n\`;
+  } else {
+    analysis += 'Todas las palabras son válidas\\n';
+  }
   document.getElementById('syntacticAnalysis').textContent = analysis;
+}
+performSyntacticAnalysis("${word}", ${JSON.stringify(invalidWords)});
+`;
+  document.getElementById('syntacticAnalysis').textContent = analysis;
+  document.getElementById('syntacticAnalysisCode').textContent = codeSnippet;
 }
